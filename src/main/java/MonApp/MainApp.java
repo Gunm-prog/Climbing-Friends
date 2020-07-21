@@ -1,5 +1,5 @@
 package MonApp;
-
+import Climbing.Connect;
 import Entities.Secteur;
 import Entities.Spot;
 import Entities.User;
@@ -14,28 +14,23 @@ import java.util.Scanner;
 
 public class MainApp {
 
-   // public MainApp() {
-
 
     public static void main(String[] args)  {
         Scanner sc=new Scanner( System.in );
 
-       EntityManagerFactory entityManagerFactory=null;
-        EntityManager entityManager=null;
+
+        User user = new User( sc );
+        UserDAO userDAO = new UserDAO();
+        Spot spot = new Spot(sc  );
+        SpotDAO spotDAO = new SpotDAO();
+        Secteur secteur = new Secteur (sc);
+        SecteurDAO secteurDAO = new SecteurDAO();
+
         try {
-            entityManagerFactory=Persistence.createEntityManagerFactory( "connect" );
-            entityManager=entityManagerFactory.createEntityManager();
-            System.out.println( " Creating User" );
-            new User( sc );
-            new UserDAO();
 
-            System.out.println( "Creaating Spot" );
-            new Spot( sc );
-            new SpotDAO();
-
-            System.out.println( "Creating secteur" );
-            new Secteur( sc );
-            new SecteurDAO();
+            userDAO.saveUser( user );
+            spotDAO.saveSpot( spot );
+            secteurDAO.saveSecteur( secteur );
 
         } catch (Exception e) {
             e.printStackTrace();
