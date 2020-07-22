@@ -1,14 +1,12 @@
 package MonApp;
-import Climbing.Connect;
+
 import Entities.Secteur;
 import Entities.Spot;
 import Entities.User;
 import Model.SecteurDAO;
 import Model.SpotDAO;
 import Model.UserDAO;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 import java.util.Scanner;
 
 

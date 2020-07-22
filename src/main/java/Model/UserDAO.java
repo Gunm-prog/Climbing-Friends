@@ -10,12 +10,13 @@ import java.util.Scanner;
 public class UserDAO {
     EntityManagerFactory emf=Persistence.createEntityManagerFactory( "connect" );
     private Scanner sc=new Scanner( System.in );
-   /* private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory=sessionFactory;
-    }*/
+    }
     public void saveUser(User user) {
+
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx=em.getTransaction();
         //On va vérifier qu'un utilisateur existe dans une condition

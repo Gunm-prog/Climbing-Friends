@@ -17,9 +17,10 @@ public class Connect {
             System.out.println("Connexion effective!");
             Statement statement = connection.createStatement();
 
-           statement.execute( "insert into User (name, email,pseudo, mdp) values ()");//, ('Gabriel', 'Gab', '2435', '2020-07-01 12:05:03', '2020-07-03 13:07:31', '2020-07-05 04:01:25', '1', '59240', 'Dunkerque', 'Hauts de France')" );
-            statement.executeQuery( "insert into User (name, email, pseudo, mdp ) values (name, email, pseudo, password)");
-             ResultSet resultSet = statement.executeQuery( "select * from User" );
+           statement.execute( "insert into user (id, name, email,pseudo, password) values ('Gabriel','Gab@hotmail.com', 'Gab', 2435)");
+            // , '2020-07-01 12:05:03', '2020-07-03 13:07:31', '2020-07-05 04:01:25', '1', '59240', 'Dunkerque', 'Hauts de France')" );
+            statement.executeQuery( "insert into user (id, name, email, pseudo, password ) values (name, email, pseudo, password)");
+             ResultSet resultSet = statement.executeQuery( "select * from user" );
 
             while (resultSet.next()){
                 System.out.println("id: "+ resultSet.getInt ("id"));

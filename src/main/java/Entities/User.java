@@ -13,7 +13,7 @@ public class User{
     @GeneratedValue(strategy=GenerationType.IDENTITY)//se charge de mettre à jour l'id dans bdd
     @Column (name = "id")
     private Long id;
-    @Column (name="Nom_client")
+    @Column (name="name")
     private String name;
     @Column (name= "email")
     private String email;
@@ -21,8 +21,8 @@ public class User{
     private String pseudo;
     @Column (name= "password")
     private String password;
-    @Column (name= "created_at")
-    private LocalDateTime createdAt;
+    //@Column (name= "created_at")
+  //  private LocalDateTime createdAt;
 
     //private LocalDateTime updatedAt;
     //private LocalDateTime deletedAt;
