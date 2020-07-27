@@ -4,6 +4,10 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence ">
     <persistence-unit name="connect">
 
+
+      <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+
       <properties>
            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
            <property name="javax.persistence.jdbc.url"

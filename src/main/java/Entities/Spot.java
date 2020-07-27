@@ -1,6 +1,8 @@
 package Entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @Entity
@@ -15,7 +17,22 @@ public class Spot {
     @Column (name="Nom_spot")
     private String name;
 
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name= "user_id", nullable=false)
+    private User user;
 
+
+
+    @OneToMany(targetEntity=Commentaire.class, mappedBy="spot")
+    private List<Commentaire> commentaires = new ArrayList<>();
+    /*@OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name= "Commentaire")
+    private Commentaire commentaire;
+    private List<Commentaire> commentaires;*/
+
+   /* @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="commentaire_id")
+    private Commentaire commentaire;*/
 
 
     public Spot(Scanner sc) {
@@ -42,13 +59,27 @@ public class Spot {
         this.name=name;
     }
 
+    public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+
+    /*public User getUser (){ return user;}
+    public void setUser(User user){ this.user=user;}*/
+
+  /*  public Commentaire getCommentaire(){ return commentaire;}
+    public void setCommentaire(Commentaire commentaire){this.commentaire=commentaire;}*/
+
+
+
     public void scanName(Scanner sc){
         System.out.println ("spotName: ");
         String inputName = sc.nextLine();
         this.setName(inputName );
     }
-
-
-
 
 }

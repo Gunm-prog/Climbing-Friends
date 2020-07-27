@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 
         public Secteur(Scanner sc) {
-            this.scanId(sc);
+            //this.scanId(sc);
             this.scanName(sc);
         }
 
@@ -42,11 +42,11 @@ import java.util.Scanner;
             this.name=name;
         }
 
-    public void scanId(Scanner sc){
+   /* public void scanId(Scanner sc){
         System.out.println ("secteurId: ");
         String inputName = sc.nextLine();
         this.setName(inputName );
-    }
+    }*/
 
     public void scanName(Scanner sc){
         System.out.println ("secteurName: ");

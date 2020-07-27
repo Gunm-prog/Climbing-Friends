@@ -1,8 +1,12 @@
 package Entities;
 
+
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+
 
 @Entity
 @Table (name="User")//spécification nom table forcé
@@ -21,6 +25,24 @@ public class User{
     private String pseudo;
     @Column (name= "password")
     private String password;
+
+   /* @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name= "Commentaire")
+    private Commentaire commentaire;
+   // private List<Commentaire> commentaires;*/
+
+   /* @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="spot_id")
+    private Spot spot;*/
+
+    @OneToMany(targetEntity = Commentaire.class, cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Commentaire> commentaire;
+
+    @OneToMany(targetEntity=Spot.class, mappedBy="user")
+    private List<Spot> spot = new ArrayList<>();
+   /* @OneToMany(targetEntity = Spot.class, mappedBy = "user")
+    public List<Spot> spot;*/
+
     //@Column (name= "created_at")
   //  private LocalDateTime createdAt;
 
@@ -83,11 +105,23 @@ public class User{
         this.password = password;
     }
 
+    public List<Spot> getSpot() {
+        return spot;
+    }
+
+
+/*public Spot getSpot(){return (Spot) spot;}
+    public void setSpot(Spot spot){ this.spot=(List<Spot>) spot;}*/
+
+ /*   public Commentaire getCommentaire(){return commentaire;}
+    public void setCommentaire (Commentaire commentaire){ this.commentaire=commentaire;}*/
+
+
     public void scanName(Scanner sc){
         System.out.println ("userName: ");
         String inputName = sc.nextLine();
         this.setName(inputName );
-        System.out.println("vous avez saisi: " + inputName + "name");
+        System.out.println("vous avez saisi: " + inputName + "");
     }
 
 
@@ -111,5 +145,11 @@ public class User{
         this.setPassword(inputPassword);
     }
 
+    /*public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
 
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires=commentaires;
+    }*/
 }
