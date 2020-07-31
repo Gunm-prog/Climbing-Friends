@@ -22,7 +22,7 @@ public class Spot {
     private User user;*/
 
     @ManyToOne(targetEntity=User.class, fetch = FetchType.LAZY)
-    @JoinColumn(name="companyId")//Optional
+    @JoinColumn(name="user_Id")
     private User user;
 
 
