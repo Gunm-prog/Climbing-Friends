@@ -109,8 +109,18 @@ public class User{
         return spot;
     }
 
+    public void setSpot(List<Spot> spot) {
+        this.spot=spot;
+    }
 
-/*public Spot getSpot(){return (Spot) spot;}
+    public Set<Commentaire> getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaires(Set<Commentaire> commentaire) {
+        this.commentaire=commentaire;
+    }
+    /*public Spot getSpot(){return (Spot) spot;}
     public void setSpot(Spot spot){ this.spot=(List<Spot>) spot;}*/
 
  /*   public Commentaire getCommentaire(){return commentaire;}

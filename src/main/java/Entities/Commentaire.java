@@ -29,6 +29,7 @@ public class Commentaire {
     }
 
     public Commentaire() {
+
     }
 
 
@@ -56,6 +57,13 @@ public class Commentaire {
         this.content=content;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user=user;
+    }
 
     public Spot getSpot (){ return spot;}
     public void setSpot(Spot spot){ this.spot=spot;}

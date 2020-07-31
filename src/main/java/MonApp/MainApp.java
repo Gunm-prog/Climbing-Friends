@@ -14,6 +14,7 @@ import com.octest.servlets.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MainApp {
 
@@ -54,6 +55,7 @@ public class MainApp {
             //user.setCommentaires( commentaireList );
            // user.setCommentaire(commentaire );
            // user.setSpot(spot);
+            user.setCommentaires( (Set<Commentaire>) commentaireList );
 
 
 

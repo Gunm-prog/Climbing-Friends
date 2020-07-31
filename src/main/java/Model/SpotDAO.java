@@ -18,7 +18,7 @@ public class SpotDAO {
             EntityTransaction tx = em.getTransaction();
             //On va vérifier qu'un utilisateur existe dans une condition
             //qui nous permettra d'ajouter ou de MAJ un client dans notre BDD
-            if (spot.getId()==null){ //TODO
+            if (spot.getId()== null){ //TODO
                 em.persist( spot );
             }else{
                 em.merge(spot);

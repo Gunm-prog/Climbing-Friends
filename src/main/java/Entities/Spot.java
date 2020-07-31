@@ -17,10 +17,13 @@ public class Spot {
     @Column (name="Nom_spot")
     private String name;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name= "user_id", nullable=false)
-    private User user;
+  /*  @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name= "user_id")//, nullable=false)
+    private User user;*/
 
+    @ManyToOne(targetEntity=User.class, fetch = FetchType.LAZY)
+    @JoinColumn(name="companyId")//Optional
+    private User user;
 
 
     @OneToMany(targetEntity=Commentaire.class, mappedBy="spot")
@@ -63,11 +66,17 @@ public class Spot {
         return commentaires;
     }
 
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires=commentaires;
+    }
+
     public User getUser() {
         return user;
     }
 
-
+    public void setUser(User user) {
+        this.user=user;
+    }
     /*public User getUser (){ return user;}
     public void setUser(User user){ this.user=user;}*/
 

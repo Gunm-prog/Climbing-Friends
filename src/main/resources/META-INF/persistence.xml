@@ -6,8 +6,9 @@
 
 
       <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
-
+       <class>ClimbingFriends.Entities.User</class>
+        <class>ClimbingFriends.Entities.Commentaire</class>
+        <class>ClimbingFriends.Entities.Spot</class>
       <properties>
            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
            <property name="javax.persistence.jdbc.url"
