@@ -8,7 +8,7 @@ import java.util.Scanner;
 @Entity
 @Table (name="spot")//spécification nom table forcé
 public class Spot {
-
+    //private Scanner sc = new Scanner (System.in);
     @Id
     //norme
     @GeneratedValue(strategy=GenerationType.IDENTITY)//se charge de mettre à jour l'id dans bdd
@@ -21,8 +21,8 @@ public class Spot {
     @JoinColumn(name= "user_id")//, nullable=false)
     private User user;*/
 
-    @ManyToOne(targetEntity=User.class, fetch = FetchType.LAZY)
-    @JoinColumn(name="user_Id")
+    @ManyToOne(targetEntity=User.class)
+    @JoinColumn(name="user_id", referencedColumnName="id"/*, insertable=false, updatable=false*/)
     private User user;
 
 

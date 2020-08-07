@@ -2,10 +2,8 @@ package Entities;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
+
 
 
 @Entity
@@ -16,7 +14,7 @@ public class User{
     //norme
     @GeneratedValue(strategy=GenerationType.IDENTITY)//se charge de mettre à jour l'id dans bdd
     @Column (name = "id")
-    private Long id;
+    private Long Id;
     @Column (name="name")
     private String name;
     @Column (name= "email")
@@ -35,7 +33,7 @@ public class User{
     @JoinColumn(name="spot_id")
     private Spot spot;*/
 
-    @OneToMany(targetEntity = Commentaire.class, cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Commentaire.class, mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Commentaire> commentaire;
 
     @OneToMany(targetEntity=Spot.class, mappedBy="user")
@@ -49,7 +47,7 @@ public class User{
     //private LocalDateTime updatedAt;
     //private LocalDateTime deletedAt;
 
-   // private Scanner sc = new Scanner( System.in );
+
 
     public User(){
     }
@@ -63,11 +61,11 @@ public class User{
     }
 
     public Long getId() {
-        return  id;
+        return  Id;
     }
 
     public void setId(Long id) {
-        this.id=id;
+        this.Id=Id;
     }
 
     public String getName() {
@@ -154,6 +152,8 @@ public class User{
         String inputPassword = sc.nextLine();
         this.setPassword(inputPassword);
     }
+
+
 
     /*public List<Commentaire> getCommentaires() {
         return commentaires;

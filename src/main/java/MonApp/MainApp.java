@@ -11,39 +11,38 @@ import Model.SpotDAO;
 import Model.UserDAO;
 import com.octest.servlets.Test;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
+
 
 public class MainApp {
+    EntityManagerFactory emf =Persistence.createEntityManagerFactory( "connect" );
 
 
-    public static void main(String[] args)  {
+
+    public static void main(String[] args) {
 
 
         Scanner sc=new Scanner( System.in );
+        Test test=new Test();
+        User user=new User( sc );
+        UserDAO userDAO=new UserDAO();
+        Spot spot=new Spot(sc );
+        SpotDAO spotDAO=new SpotDAO();
+        Secteur secteur=new Secteur( sc );
+        SecteurDAO secteurDAO=new SecteurDAO();
+        Commentaire commentaire=new Commentaire( sc, user, spot );
+        CommentaireDAO commentaireDAO=new CommentaireDAO();
 
-        Test test = new Test();
-        User user = new User( sc );
-        UserDAO userDAO = new UserDAO();
-        Spot spot = new Spot(sc  );
-        SpotDAO spotDAO = new SpotDAO();
-        Secteur secteur = new Secteur (sc);
-        SecteurDAO secteurDAO = new SecteurDAO();
-        Commentaire commentaire = new Commentaire(sc, user );
-        CommentaireDAO commentaireDAO = new CommentaireDAO();
+        // Commentaire commentaire1 = new Commentaire();
+        // Commentaire commentaire2 = new Commentaire();
 
-       // Commentaire commentaire1 = new Commentaire();
-       // Commentaire commentaire2 = new Commentaire();
-
-        List<Commentaire> commentaireList = new ArrayList<>();
+        List<Commentaire> commentaireList=new ArrayList<>();
         //commentaireList.add( commentaire1);
         //commentaireList.add (commentaire2);
-
-
-
-
 
 
         try {
@@ -53,10 +52,9 @@ public class MainApp {
             secteurDAO.saveSecteur( secteur );
             commentaireDAO.saveCommentaire( commentaire );
             //user.setCommentaires( commentaireList );
-           // user.setCommentaire(commentaire );
-           // user.setSpot(spot);
-            user.setCommentaires( (Set<Commentaire>) commentaireList );
-
+            // user.setCommentaire(commentaire );
+            // user.setSpot();
+            //user.setCommentaires( (Set<Commentaire>) commentaireList );
 
 
         } catch (Exception e) {

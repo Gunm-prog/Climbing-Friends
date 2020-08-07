@@ -1,7 +1,6 @@
 package Model;
 
 import Entities.Commentaire;
-import Entities.Spot;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +30,7 @@ public class CommentaireDAO {
         //pas besoin transaction pour lire des données
         tx.begin();
         tx.commit();
-        em.close();
+        //em.close();
     }
 
 

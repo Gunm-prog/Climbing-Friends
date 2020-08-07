@@ -1,5 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome Climbing Friend!</title>
+</head>
 <body>
-<h2>Hello World!</h2>
+    <h1>HOME</h1>
 </body>
 </html>

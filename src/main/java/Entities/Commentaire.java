@@ -14,17 +14,19 @@ public class Commentaire {
     private String name;
     @Column (name= "content")
     private String content;
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name= "user_id", nullable=false)
     private User user;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="spot_id")
     private Spot spot;
 
-    public Commentaire(Scanner sc, User user) {
+    public Commentaire(Scanner sc, User user, Spot spot) {
         this.user=user;//TODO à vérifier cet ajout de constructeur
+        this.spot=spot;
         this.scanName(sc);
+
         this.scanContent(sc);
     }
 
@@ -73,7 +75,7 @@ public class Commentaire {
     public void scanName(Scanner sc){
         System.out.println("Title: ");
         String inputName = sc.nextLine();
-        this.setContent(inputName);
+        this.setName(inputName);
     }
 
     public void scanContent(Scanner sc){
